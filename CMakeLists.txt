@@ -28,3 +28,14 @@ add_executable(virtual1
         ex01/Cat.hpp
         ex01/Brain.cpp
         ex01/Brain.hpp)
+
+add_executable(virtual2
+        ex02/main.cpp
+        ex02/Animal.cpp
+        ex02/Animal.hpp
+        ex02/Dog.cpp
+        ex02/Dog.hpp
+        ex02/Cat.cpp
+        ex02/Cat.hpp
+        ex02/Brain.cpp
+        ex02/Brain.hpp)
