@@ -2,18 +2,34 @@
 
 #include <iostream>
 
+void Dog::makeSound() const
+{
+    std::cout << "[DEBUG] Dog makeSound() member function called" << std::endl;
+    std::cout << "Woof" << std::endl;
+}
+
+std::string Dog::getIdea(const int idx) const
+{
+    return _brain->getIdea(idx);
+}
+
+void Dog::setIdea(const int idx, const std::string& idea) const
+{
+    _brain->setIdea(idx, idea);
+}
+
 Dog::Dog()
-    : _brain(new Brain)
+    : _brain(new Brain())
 {
     std::cout << "[DEBUG] Dog default constructor called" << std::endl;
     _type = "Dog";
 }
 
 Dog::Dog(const Dog& other)
-    : Animal(other)
+    : Animal(other),
+      _brain(new Brain(*other._brain))
 {
     std::cout << "[DEBUG] Dog copy constructor called" << std::endl;
-    _brain = new Brain(*other._brain);
 }
 
 Dog::~Dog()
@@ -27,23 +43,8 @@ Dog& Dog::operator=(const Dog& other)
     std::cout << "[DEBUG] Dog copy assignment operator called" << std::endl;
     if (this != &other)
     {
-        _type = other._type;
+        Animal::operator=(other);
         *_brain = *other._brain;
     }
     return *this;
-}
-
-Brain* Dog::getBrain() const
-{
-    return _brain;
-}
-
-void Dog::setBrain(Brain* const brain)
-{
-    _brain = brain;
-}
-
-void Dog::makeSound() const
-{
-    std::cout << "Bark" << std::endl;
 }

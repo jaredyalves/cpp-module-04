@@ -17,7 +17,7 @@ add_executable(animal
         ex00/Wrong.hpp
 )
 
-add_executable(virtual1
+add_executable(brain
         ex01/main.cpp
         ex01/Animal.cpp
         ex01/Animal.hpp
@@ -25,8 +25,11 @@ add_executable(virtual1
         ex01/Dog.hpp
         ex01/Cat.cpp
         ex01/Cat.hpp
+        ex01/Wrong.cpp
+        ex01/Wrong.hpp
         ex01/Brain.cpp
-        ex01/Brain.hpp)
+        ex01/Brain.hpp
+)
 
 add_executable(virtual2
         ex02/main.cpp
