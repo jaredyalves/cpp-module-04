@@ -31,13 +31,16 @@ add_executable(brain
         ex01/Brain.hpp
 )
 
-add_executable(virtual2
+add_executable(abstract
         ex02/main.cpp
-        ex02/Animal.cpp
-        ex02/Animal.hpp
+        ex02/AAnimal.cpp
+        ex02/AAnimal.hpp
         ex02/Dog.cpp
         ex02/Dog.hpp
         ex02/Cat.cpp
         ex02/Cat.hpp
+        ex02/Wrong.cpp
+        ex02/Wrong.hpp
         ex02/Brain.cpp
-        ex02/Brain.hpp)
+        ex02/Brain.hpp
+)

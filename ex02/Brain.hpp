@@ -8,14 +8,17 @@
 class Brain
 {
 public:
-    std::string ideas[IDEAS_MAX];
+    std::string getIdea(int idx) const;
+    void        setIdea(int idx, const std::string& idea);
 
     Brain();
     Brain(const Brain& other);
-
     ~Brain();
 
     Brain& operator=(const Brain& other);
+
+private:
+    std::string _ideas[IDEAS_MAX];
 };
 
 #endif //BRAIN_HPP

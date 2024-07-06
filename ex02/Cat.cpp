@@ -2,18 +2,34 @@
 
 #include <iostream>
 
+void Cat::makeSound() const
+{
+    std::cout << "[DEBUG] Cat makeSound() member function called" << std::endl;
+    std::cout << "Meow" << std::endl;
+}
+
+std::string Cat::getIdea(const int idx) const
+{
+    return _brain->getIdea(idx);
+}
+
+void Cat::setIdea(const int idx, const std::string& idea) const
+{
+    _brain->setIdea(idx, idea);
+}
+
 Cat::Cat()
-    : _brain(new Brain)
+    : _brain(new Brain())
 {
     std::cout << "[DEBUG] Cat default constructor called" << std::endl;
     _type = "Cat";
 }
 
 Cat::Cat(const Cat& other)
-    : Animal(other)
+    : AAnimal(other),
+      _brain(new Brain(*other._brain))
 {
     std::cout << "[DEBUG] Cat copy constructor called" << std::endl;
-    _brain = new Brain(*other._brain);
 }
 
 Cat::~Cat()
@@ -27,23 +43,8 @@ Cat& Cat::operator=(const Cat& other)
     std::cout << "[DEBUG] Cat copy assignment operator called" << std::endl;
     if (this != &other)
     {
-        _type = other._type;
+        AAnimal::operator=(other);
         *_brain = *other._brain;
     }
     return *this;
-}
-
-Brain* Cat::getBrain() const
-{
-    return _brain;
-}
-
-void Cat::setBrain(Brain* const brain)
-{
-    _brain = brain;
-}
-
-void Cat::makeSound() const
-{
-    std::cout << "Meow" << std::endl;
 }

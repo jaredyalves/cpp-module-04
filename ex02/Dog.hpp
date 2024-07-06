@@ -1,26 +1,25 @@
 #ifndef DOG_HPP
 #define DOG_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal
+class Dog : public AAnimal
 {
 public:
+    void makeSound() const;
+
+    std::string getIdea(int idx) const;
+    void        setIdea(int idx, const std::string& idea) const;
+
     Dog();
     Dog(const Dog& other);
-
     ~Dog();
 
     Dog& operator=(const Dog& other);
-
-    Brain* getBrain() const;
-    void   setBrain(Brain* brain);
-
-    void makeSound() const;
 
 private:
     Brain* _brain;
 };
 
-#endif //DOG_HPP
+#endif
