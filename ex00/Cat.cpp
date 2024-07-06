@@ -2,6 +2,12 @@
 
 #include <iostream>
 
+void Cat::makeSound() const
+{
+    std::cout << "[DEBUG] Cat makeSound() member function called" << std::endl;
+    std::cout << "Meow" << std::endl;
+}
+
 Cat::Cat()
 {
     std::cout << "[DEBUG] Cat default constructor called" << std::endl;
@@ -24,12 +30,7 @@ Cat& Cat::operator=(const Cat& other)
     std::cout << "[DEBUG] Cat copy assignment operator called" << std::endl;
     if (this != &other)
     {
-        _type = other._type;
+        Animal::operator=(other);
     }
     return *this;
-}
-
-void Cat::makeSound() const
-{
-    std::cout << "Meow" << std::endl;
 }

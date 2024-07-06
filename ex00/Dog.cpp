@@ -2,6 +2,12 @@
 
 #include <iostream>
 
+void Dog::makeSound() const
+{
+    std::cout << "[DEBUG] Dog makeSound() member function called" << std::endl;
+    std::cout << "Woof" << std::endl;
+}
+
 Dog::Dog()
 {
     std::cout << "[DEBUG] Dog default constructor called" << std::endl;
@@ -24,12 +30,7 @@ Dog& Dog::operator=(const Dog& other)
     std::cout << "[DEBUG] Dog copy assignment operator called" << std::endl;
     if (this != &other)
     {
-        _type = other._type;
+        Animal::operator=(other);
     }
     return *this;
-}
-
-void Dog::makeSound() const
-{
-    std::cout << "Bark" << std::endl;
 }

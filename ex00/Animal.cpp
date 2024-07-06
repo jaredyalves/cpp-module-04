@@ -2,6 +2,24 @@
 
 #include <iostream>
 
+void Animal::makeSound() const
+{
+    std::cout << "[DEBUG] Animal makeSound() member function called" << std::endl;
+    std::cout << "Unknown" << std::endl;
+}
+
+std::string Animal::getType() const
+{
+    std::cout << "[DEBUG] Animal getType() member function called" << std::endl;
+    return _type;
+}
+
+void Animal::setType(const std::string& type)
+{
+    std::cout << "[DEBUG] Animal setType() member function called" << std::endl;
+    _type = type;
+}
+
 Animal::Animal()
     : _type("Unknown")
 {
@@ -27,19 +45,4 @@ Animal& Animal::operator=(const Animal& other)
         _type = other._type;
     }
     return *this;
-}
-
-std::string Animal::getType() const
-{
-    return _type;
-}
-
-void Animal::setType(const std::string& type)
-{
-    _type = type;
-}
-
-void Animal::makeSound() const
-{
-    std::cout << "Unknown" << std::endl;
 }
