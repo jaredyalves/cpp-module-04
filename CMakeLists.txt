@@ -44,3 +44,19 @@ add_executable(abstract
         ex02/Brain.cpp
         ex02/Brain.hpp
 )
+
+add_executable(materia
+        ex03/main.cpp
+        ex03/ICharacter.hpp
+        ex03/IMateriaSource.hpp
+        ex03/AMateria.cpp
+        ex03/AMateria.hpp
+        ex03/Character.cpp
+        ex03/Character.hpp
+        ex03/Cure.cpp
+        ex03/Cure.hpp
+        ex03/Ice.cpp
+        ex03/Ice.hpp
+        ex03/MateriaSource.cpp
+        ex03/MateriaSource.hpp
+)
