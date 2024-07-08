@@ -5,8 +5,14 @@
 void MateriaSource::learnMateria(AMateria* m)
 {
     std::cout << "[DEBUG] MateriaSource learnMateria() member function called" << std::endl;
-    if (_count < SOURCES_MAX && m)
-        _sources[_count++] = m;
+    for (int i = 0; i < SOURCES_MAX; ++i)
+    {
+        if (!_sources[i])
+        {
+            _sources[i] = m;
+            return;
+        }
+    }
 }
 
 AMateria* MateriaSource::createMateria(const std::string& type)
@@ -21,8 +27,7 @@ AMateria* MateriaSource::createMateria(const std::string& type)
 }
 
 MateriaSource::MateriaSource()
-    : _sources(),
-      _count(0)
+    : _sources()
 {
     std::cout << "[DEBUG] MateriaSource default constructor called" << std::endl;
     for (int i = 0; i < SOURCES_MAX; ++i)
@@ -30,8 +35,7 @@ MateriaSource::MateriaSource()
 }
 
 MateriaSource::MateriaSource(const MateriaSource& other)
-    : _sources(),
-      _count(other._count)
+    : _sources()
 {
     std::cout << "[DEBUG] MateriaSource copy constructor called" << std::endl;
     for (int i = 0; i < SOURCES_MAX; ++i)
@@ -47,7 +51,10 @@ MateriaSource::~MateriaSource()
 {
     std::cout << "[DEBUG] MateriaSource destructor called" << std::endl;
     for (int i = 0; i < SOURCES_MAX; ++i)
+    {
         delete _sources[i];
+        _sources[i] = NULL;
+    }
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& other)
@@ -64,7 +71,6 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
             else
                 _sources[i] = NULL;
         }
-        _count = other._count;
     }
     return *this;
 }

@@ -20,7 +20,6 @@ public:
 
 private:
     AMateria* _sources[SOURCES_MAX];
-    int       _count;
 };
 
 #endif

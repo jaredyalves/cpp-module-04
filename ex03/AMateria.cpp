@@ -4,6 +4,7 @@
 
 const std::string& AMateria::getType() const
 {
+    std::cout << "[DEBUG] AMateria getType() member function called" << std::endl;
     return _type;
 }
 
@@ -33,9 +34,6 @@ AMateria::~AMateria()
 AMateria& AMateria::operator=(const AMateria& other)
 {
     std::cout << "[DEBUG] AMateria copy assignment operator called" << std::endl;
-    if (this != &other)
-    {
-        _type = other._type;
-    }
+    if (this != &other) {}
     return *this;
 }

@@ -8,10 +8,10 @@ class ICharacter;
 class AMateria
 {
 public:
-    const std::string& getType() const;
-
     virtual AMateria* clone() const = 0;
     virtual void      use(ICharacter& target) = 0;
+
+    const std::string& getType() const;
 
     AMateria();
     explicit AMateria(const std::string& type);
